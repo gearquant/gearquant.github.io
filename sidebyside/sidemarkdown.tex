@@ -43,7 +43,16 @@
 
 \maketitle
 
-\section*{Literate Markdown side-by-side example}
+\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}\medskip
+
+
+
+title: Markdown Content
+category: Examples
+categoryindex: 2
+\subsection*{index: 2}
+
+\section*{Example: Using Markdown Content}
 
 
 
@@ -74,9 +83,7 @@ writing a block indented by four spaces and the code
 snippet will be turned into a \texttt{<pre>} element. If you do
 the same using Literate F\# tool, the code is turned into
 a nicely formatted F\# snippet:
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
+\begin{Verbatim}[commandchars=\\\{\}]
 \com{/// The Hello World of functional languages!}
 \kwd{let} \kwd{rec} \lfun{factorial} \lfun{x} \ops{=} 
   \kwd{if} \lfun{x} \ops{=} \num{0} \kwd{then} \num{1} 
@@ -84,8 +91,7 @@ a nicely formatted F\# snippet:
 
 \kwd{let} \id{f10} \ops{=} \lfun{factorial} \num{10}
 
-
-\end{lstlisting}
+\end{Verbatim}
 
 \subsection*{Hiding code}
 
@@ -101,13 +107,10 @@ the snippet should be placed in a separate module
 The value will be deffined in the F\# code that is
 processed and so you can use it from other (visible)
 code and get correct tool tips:
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
+\begin{Verbatim}[commandchars=\\\{\}]
 \kwd{let} \id{answer} \ops{=} \ltyp{Hidden}{.}\id{answer}
 
-
-\end{lstlisting}
+\end{Verbatim}
 
 \subsection*{Including other snippets}
 

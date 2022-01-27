@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quick start</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Alexander Gairat">
+
+    <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link type="text/css" rel="stylesheet" href="content/navbar-fixed-right.css" />
+    <link type="text/css" rel="stylesheet" href="content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="content/fsdocs-custom.css" />
+    <script type="text/javascript" src="content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-right" id="fsdocs-menu">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <a href="{{fsdocs-logo-link}}"><img id="fsdocs-logo" src="logoFSharp.png" /></a>
+            <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+            <div id="header">
+                <div class="searchbox" id="fsdocs-searchbox">
+                    <label for="search-by">
+                        <i class="fas fa-search"></i>
+                    </label>
+                    <input data-search-input="" id="search-by" type="search" placeholder="Search..." />
+                    <span data-search-clear="">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- END SEARCH BOX: this adds support for the search box -->
+            <ul class="navbar-nav">
+                <li class="nav-header">Links</li>
+                <!-- <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="">License (Apache 2.0)</a></li> -->
+                <li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="">Release Notes</a></li>
+                <!-- <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="{{fsdocs-repository-link}}">Source Repository</a></li> -->
+                <li class="nav-item" id=overview.html> <a class="nav-link" href="overview.html">Quick start</a></li>
+        <li class="nav-item" id=AutocallScript.html> <a class="nav-link" href="AutocallScript.html">Instrument Payoff definition</a></li>
+        <li ><a href="mailto: contacts@gearquant.com"> Contacts</a></li>
+        
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="masthead">
+            <h3 class="muted"><a href="{{fsdocs-collection-name-link}}">QFL: Quant F<sup>#</sup><sub style='position: relative; left: -.5em;'>in</sub> Lib  </a></h3>
+        </div>
+        <hr />
+        <div class="container" id="fsdocs-content">
+            <h2>Module with Autocall definition</h2>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">type</span> <span class="rt">State</span> <span class="o">=</span>
+        <span class="pn">{</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs8', 12)" onmouseover="showTip(event, 'fs8', 12)" class="prop">CouponMemory</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 13)" onmouseover="showTip(event, 'fs9', 13)" class="vt">float</span> 
+            <span class="c">///required field containing cash flows</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="prop">CashFlow</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs4', 15)" onmouseover="showTip(event, 'fs4', 15)" class="m">Instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs11', 16)" onmouseover="showTip(event, 'fs11', 16)" class="id">CashFlow</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs12', 17)" onmouseover="showTip(event, 'fs12', 17)" class="prop">CouponDateIndex</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 18)" onmouseover="showTip(event, 'fs13', 18)" class="vt">int</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="prop">FundingDateIndex</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="vt">int</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs15', 21)" onmouseover="showTip(event, 'fs15', 21)" class="prop">IsAutocalled</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="vt">bool</span>
+            <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="prop">Probability</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 24)" onmouseover="showTip(event, 'fs9', 24)" class="vt">float</span> <span onmouseout="hideTip(event, 'fs18', 25)" onmouseover="showTip(event, 'fs18', 25)" class="rt">list</span>
+        
+        <span class="pn">}</span> <span class="k">with</span> <span class="k">member</span> <span onmouseout="hideTip(event, 'fs19', 26)" onmouseover="showTip(event, 'fs19', 26)" class="fn">this</span><span class="pn">.</span><span class="prop">Clone</span> <span class="o">=</span> <span class="pn">{</span><span onmouseout="hideTip(event, 'fs19', 27)" onmouseover="showTip(event, 'fs19', 27)" class="fn">this</span> <span class="k">with</span> <span onmouseout="hideTip(event, 'fs11', 28)" onmouseover="showTip(event, 'fs11', 28)" class="prop">CashFlow</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 29)" onmouseover="showTip(event, 'fs19', 29)" class="fn">this</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 30)" onmouseover="showTip(event, 'fs20', 30)" class="id">CashFlow</span><span class="pn">}</span> 
+</code></pre>
+<h2>Instrument parameters</h2>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">type</span> <span onmouseout="hideTip(event, 'fs21', 31)" onmouseover="showTip(event, 'fs21', 31)" class="rt">Data</span> <span class="o">=</span> 
+        <span class="pn">{</span>
+            <span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="prop">AssetNames</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs23', 33)" onmouseover="showTip(event, 'fs23', 33)" class="rt">string</span> <span class="pn">[</span><span class="pn">]</span>
+            <span onmouseout="hideTip(event, 'fs24', 34)" onmouseover="showTip(event, 'fs24', 34)" class="prop">CouponDates</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs25', 35)" onmouseover="showTip(event, 'fs25', 35)" class="vt">DateTime</span> <span class="pn">[</span><span class="pn">]</span>
+            <span onmouseout="hideTip(event, 'fs26', 36)" onmouseover="showTip(event, 'fs26', 36)" class="prop">CouponPayDates</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs25', 37)" onmouseover="showTip(event, 'fs25', 37)" class="vt">DateTime</span> <span class="pn">[</span><span class="pn">]</span>            
+
+            <span onmouseout="hideTip(event, 'fs27', 38)" onmouseover="showTip(event, 'fs27', 38)" class="prop">FundingDates</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs25', 39)" onmouseover="showTip(event, 'fs25', 39)" class="vt">DateTime</span> <span class="pn">[</span><span class="pn">]</span>
+            <span onmouseout="hideTip(event, 'fs28', 40)" onmouseover="showTip(event, 'fs28', 40)" class="prop">FundingPayDates</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="vt">DateTime</span> <span class="pn">[</span><span class="pn">]</span>            
+        
+            <span onmouseout="hideTip(event, 'fs29', 42)" onmouseover="showTip(event, 'fs29', 42)" class="prop">InitialLevels</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs9', 43)" onmouseover="showTip(event, 'fs9', 43)" class="vt">float</span> <span class="pn">[</span><span class="pn">]</span>
+            <span onmouseout="hideTip(event, 'fs30', 44)" onmouseover="showTip(event, 'fs30', 44)" class="prop">CouponTriggerLevel</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 45)" onmouseover="showTip(event, 'fs9', 45)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs31', 46)" onmouseover="showTip(event, 'fs31', 46)" class="prop">Coupon</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 47)" onmouseover="showTip(event, 'fs9', 47)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs32', 48)" onmouseover="showTip(event, 'fs32', 48)" class="prop">FundingRate</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 49)" onmouseover="showTip(event, 'fs9', 49)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs33', 50)" onmouseover="showTip(event, 'fs33', 50)" class="prop">Notional</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 51)" onmouseover="showTip(event, 'fs9', 51)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs34', 52)" onmouseover="showTip(event, 'fs34', 52)" class="prop">Currency</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs35', 53)" onmouseover="showTip(event, 'fs35', 53)" class="rt">Currency</span>
+            <span onmouseout="hideTip(event, 'fs36', 54)" onmouseover="showTip(event, 'fs36', 54)" class="prop">PutGearing</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 55)" onmouseover="showTip(event, 'fs9', 55)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs37', 56)" onmouseover="showTip(event, 'fs37', 56)" class="prop">Strike</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 57)" onmouseover="showTip(event, 'fs9', 57)" class="vt">float</span>
+            <span onmouseout="hideTip(event, 'fs38', 58)" onmouseover="showTip(event, 'fs38', 58)" class="prop">AutocallTriggerLevel</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs9', 59)" onmouseover="showTip(event, 'fs9', 59)" class="vt">float</span>
+        <span class="pn">}</span> 
+</code></pre>
+<h2>Instrument payoff definition</h2>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 60)" onmouseover="showTip(event, 'fs39', 60)" class="fn">payoff</span> <span onmouseout="hideTip(event, 'fs40', 61)" onmouseover="showTip(event, 'fs40', 61)" class="fn">instrument</span> <span onmouseout="hideTip(event, 'fs41', 62)" onmouseover="showTip(event, 'fs41', 62)" class="fn">date</span> <span onmouseout="hideTip(event, 'fs42', 63)" onmouseover="showTip(event, 'fs42', 63)" class="fn">state</span> <span onmouseout="hideTip(event, 'fs43', 64)" onmouseover="showTip(event, 'fs43', 64)" class="fn">spots</span> <span class="o">=</span>
+ 
+         <span class="k">if</span>  <span onmouseout="hideTip(event, 'fs40', 65)" onmouseover="showTip(event, 'fs40', 65)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 66)" onmouseover="showTip(event, 'fs24', 66)" class="id">CouponDates</span><span class="o">|&gt;</span><span onmouseout="hideTip(event, 'fs44', 67)" onmouseover="showTip(event, 'fs44', 67)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 68)" onmouseover="showTip(event, 'fs45', 68)" class="id">contains</span> <span onmouseout="hideTip(event, 'fs41', 69)" onmouseover="showTip(event, 'fs41', 69)" class="fn">date</span>   <span class="k">then</span>   
+     
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs46', 70)" onmouseover="showTip(event, 'fs46', 70)" class="fn">isNotAutocalled</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs42', 71)" onmouseover="showTip(event, 'fs42', 71)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 72)" onmouseover="showTip(event, 'fs15', 72)" class="id">IsAutocalled</span> <span class="k">then</span> <span class="n">0.</span> <span class="k">else</span> <span class="n">1.</span>
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs47', 73)" onmouseover="showTip(event, 'fs47', 73)" class="fn">worst</span> <span class="o">=</span>  <span onmouseout="hideTip(event, 'fs44', 74)" onmouseover="showTip(event, 'fs44', 74)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs48', 75)" onmouseover="showTip(event, 'fs48', 75)" class="id">map2</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs7', 76)" onmouseover="showTip(event, 'fs7', 76)" class="fn">x</span> <span onmouseout="hideTip(event, 'fs49', 77)" onmouseover="showTip(event, 'fs49', 77)" class="fn">y</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs7', 78)" onmouseover="showTip(event, 'fs7', 78)" class="fn">x</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs49', 79)" onmouseover="showTip(event, 'fs49', 79)" class="fn">y</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs43', 80)" onmouseover="showTip(event, 'fs43', 80)" class="fn">spots</span> <span onmouseout="hideTip(event, 'fs40', 81)" onmouseover="showTip(event, 'fs40', 81)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs29', 82)" onmouseover="showTip(event, 'fs29', 82)" class="id">InitialLevels</span> <span class="o">|&gt;</span><span onmouseout="hideTip(event, 'fs44', 83)" onmouseover="showTip(event, 'fs44', 83)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs50', 84)" onmouseover="showTip(event, 'fs50', 84)" class="id">min</span>                        
+
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs51', 85)" onmouseover="showTip(event, 'fs51', 85)" class="fn">currCpTrig</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs47', 86)" onmouseover="showTip(event, 'fs47', 86)" class="fn">worst</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs40', 87)" onmouseover="showTip(event, 'fs40', 87)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs30', 88)" onmouseover="showTip(event, 'fs30', 88)" class="id">CouponTriggerLevel</span> <span class="o">&gt;</span> <span class="n">0.</span> <span class="k">then</span> <span class="n">1.</span> <span class="k">else</span> <span class="n">0.</span>
+ 
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs52', 89)" onmouseover="showTip(event, 'fs52', 89)" class="fn">flow</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs46', 90)" onmouseover="showTip(event, 'fs46', 90)" class="fn">isNotAutocalled</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs51', 91)" onmouseover="showTip(event, 'fs51', 91)" class="fn">currCpTrig</span><span class="o">*</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs40', 92)" onmouseover="showTip(event, 'fs40', 92)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 93)" onmouseover="showTip(event, 'fs31', 93)" class="id">Coupon</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs42', 94)" onmouseover="showTip(event, 'fs42', 94)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs8', 95)" onmouseover="showTip(event, 'fs8', 95)" class="id">CouponMemory</span><span class="pn">)</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs40', 96)" onmouseover="showTip(event, 'fs40', 96)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs33', 97)" onmouseover="showTip(event, 'fs33', 97)" class="id">Notional</span><span class="o">*</span><span class="n">0.25</span>                     
+
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs53', 98)" onmouseover="showTip(event, 'fs53', 98)" class="fn">cpn</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs54', 99)" onmouseover="showTip(event, 'fs54', 99)" class="fn">cash</span> <span onmouseout="hideTip(event, 'fs52', 100)" onmouseover="showTip(event, 'fs52', 100)" class="fn">flow</span> <span onmouseout="hideTip(event, 'fs40', 101)" onmouseover="showTip(event, 'fs40', 101)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 102)" onmouseover="showTip(event, 'fs26', 102)" class="id">CouponPayDates</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs42', 103)" onmouseover="showTip(event, 'fs42', 103)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 104)" onmouseover="showTip(event, 'fs12', 104)" class="id">CouponDateIndex</span><span class="pn">]</span> <span onmouseout="hideTip(event, 'fs40', 105)" onmouseover="showTip(event, 'fs40', 105)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 106)" onmouseover="showTip(event, 'fs55', 106)" class="id">Currency</span>
+ 
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs56', 107)" onmouseover="showTip(event, 'fs56', 107)" class="fn">isAutocalled</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs47', 108)" onmouseover="showTip(event, 'fs47', 108)" class="fn">worst</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 109)" onmouseover="showTip(event, 'fs40', 109)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs38', 110)" onmouseover="showTip(event, 'fs38', 110)" class="id">AutocallTriggerLevel</span> <span class="k">then</span> <span class="k">true</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs42', 111)" onmouseover="showTip(event, 'fs42', 111)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 112)" onmouseover="showTip(event, 'fs15', 112)" class="id">IsAutocalled</span>
+
+             <span class="k">let</span> <span onmouseout="hideTip(event, 'fs57', 113)" onmouseover="showTip(event, 'fs57', 113)" class="fn">prob</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs56', 114)" onmouseover="showTip(event, 'fs56', 114)" class="fn">isAutocalled</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs42', 115)" onmouseover="showTip(event, 'fs42', 115)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 116)" onmouseover="showTip(event, 'fs15', 116)" class="id">IsAutocalled</span> <span class="k">then</span> <span class="n">0.</span> <span class="k">else</span> <span class="n">1.</span>
+     
+             <span onmouseout="hideTip(event, 'fs42', 117)" onmouseover="showTip(event, 'fs42', 117)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs8', 118)" onmouseover="showTip(event, 'fs8', 118)" class="id">CouponMemory</span> <span class="k">&lt;-</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs40', 119)" onmouseover="showTip(event, 'fs40', 119)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 120)" onmouseover="showTip(event, 'fs31', 120)" class="id">Coupon</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs42', 121)" onmouseover="showTip(event, 'fs42', 121)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs8', 122)" onmouseover="showTip(event, 'fs8', 122)" class="id">CouponMemory</span><span class="pn">)</span> <span class="o">*</span> <span class="pn">(</span><span class="n">1.</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs51', 123)" onmouseover="showTip(event, 'fs51', 123)" class="fn">currCpTrig</span><span class="pn">)</span>
+             <span onmouseout="hideTip(event, 'fs42', 124)" onmouseover="showTip(event, 'fs42', 124)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 125)" onmouseover="showTip(event, 'fs15', 125)" class="id">IsAutocalled</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs56', 126)" onmouseover="showTip(event, 'fs56', 126)" class="fn">isAutocalled</span>
+
+             <span onmouseout="hideTip(event, 'fs42', 127)" onmouseover="showTip(event, 'fs42', 127)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 128)" onmouseover="showTip(event, 'fs12', 128)" class="id">CouponDateIndex</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs42', 129)" onmouseover="showTip(event, 'fs42', 129)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 130)" onmouseover="showTip(event, 'fs12', 130)" class="id">CouponDateIndex</span> <span class="o">+</span> <span class="n">1</span>
+             <span onmouseout="hideTip(event, 'fs42', 131)" onmouseover="showTip(event, 'fs42', 131)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs17', 132)" onmouseover="showTip(event, 'fs17', 132)" class="id">Probability</span>     <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs57', 133)" onmouseover="showTip(event, 'fs57', 133)" class="fn">prob</span> <span class="uc">::</span> <span onmouseout="hideTip(event, 'fs42', 134)" onmouseover="showTip(event, 'fs42', 134)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs17', 135)" onmouseover="showTip(event, 'fs17', 135)" class="id">Probability</span>
+             <span onmouseout="hideTip(event, 'fs42', 136)" onmouseover="showTip(event, 'fs42', 136)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 137)" onmouseover="showTip(event, 'fs20', 137)" class="id">CashFlow</span>        <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs53', 138)" onmouseover="showTip(event, 'fs53', 138)" class="fn">cpn</span> <span class="uc">::</span> <span onmouseout="hideTip(event, 'fs42', 139)" onmouseover="showTip(event, 'fs42', 139)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 140)" onmouseover="showTip(event, 'fs20', 140)" class="id">CashFlow</span> 
+
+             <span class="k">if</span> <span onmouseout="hideTip(event, 'fs41', 141)" onmouseover="showTip(event, 'fs41', 141)" class="fn">date</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs44', 142)" onmouseover="showTip(event, 'fs44', 142)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs58', 143)" onmouseover="showTip(event, 'fs58', 143)" class="id">last</span> <span onmouseout="hideTip(event, 'fs40', 144)" onmouseover="showTip(event, 'fs40', 144)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 145)" onmouseover="showTip(event, 'fs24', 145)" class="id">CouponDates</span> <span class="k">then</span> 
+                 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs52', 146)" onmouseover="showTip(event, 'fs52', 146)" class="fn">flow</span> <span class="o">=</span> <span class="o">-</span><span onmouseout="hideTip(event, 'fs46', 147)" onmouseover="showTip(event, 'fs46', 147)" class="fn">isNotAutocalled</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs40', 148)" onmouseover="showTip(event, 'fs40', 148)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs36', 149)" onmouseover="showTip(event, 'fs36', 149)" class="id">PutGearing</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs59', 150)" onmouseover="showTip(event, 'fs59', 150)" class="id">Math</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs60', 151)" onmouseover="showTip(event, 'fs60', 151)" class="id">Max</span><span class="pn">(</span><span class="n">0.</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs40', 152)" onmouseover="showTip(event, 'fs40', 152)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 153)" onmouseover="showTip(event, 'fs37', 153)" class="id">Strike</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs47', 154)" onmouseover="showTip(event, 'fs47', 154)" class="fn">worst</span><span class="pn">)</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs40', 155)" onmouseover="showTip(event, 'fs40', 155)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs33', 156)" onmouseover="showTip(event, 'fs33', 156)" class="id">Notional</span>
+                 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 157)" onmouseover="showTip(event, 'fs61', 157)" class="fn">put</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs54', 158)" onmouseover="showTip(event, 'fs54', 158)" class="fn">cash</span> <span onmouseout="hideTip(event, 'fs52', 159)" onmouseover="showTip(event, 'fs52', 159)" class="fn">flow</span> <span onmouseout="hideTip(event, 'fs41', 160)" onmouseover="showTip(event, 'fs41', 160)" class="fn">date</span>  <span onmouseout="hideTip(event, 'fs40', 161)" onmouseover="showTip(event, 'fs40', 161)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 162)" onmouseover="showTip(event, 'fs55', 162)" class="id">Currency</span>   
+                 <span onmouseout="hideTip(event, 'fs42', 163)" onmouseover="showTip(event, 'fs42', 163)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 164)" onmouseover="showTip(event, 'fs20', 164)" class="id">CashFlow</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs61', 165)" onmouseover="showTip(event, 'fs61', 165)" class="fn">put</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs42', 166)" onmouseover="showTip(event, 'fs42', 166)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 167)" onmouseover="showTip(event, 'fs20', 167)" class="id">CashFlow</span> 
+
+         <span class="k">if</span>  <span onmouseout="hideTip(event, 'fs40', 168)" onmouseover="showTip(event, 'fs40', 168)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs27', 169)" onmouseover="showTip(event, 'fs27', 169)" class="id">FundingDates</span><span class="o">|&gt;</span><span onmouseout="hideTip(event, 'fs44', 170)" onmouseover="showTip(event, 'fs44', 170)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 171)" onmouseover="showTip(event, 'fs45', 171)" class="id">contains</span> <span onmouseout="hideTip(event, 'fs41', 172)" onmouseover="showTip(event, 'fs41', 172)" class="fn">date</span> <span class="k">then</span>
+     
+              <span class="k">let</span> <span onmouseout="hideTip(event, 'fs62', 173)" onmouseover="showTip(event, 'fs62', 173)" class="fn">funding</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 174)" onmouseover="showTip(event, 'fs40', 174)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs33', 175)" onmouseover="showTip(event, 'fs33', 175)" class="id">Notional</span><span class="o">*</span><span class="n">0.25</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs40', 176)" onmouseover="showTip(event, 'fs40', 176)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs32', 177)" onmouseover="showTip(event, 'fs32', 177)" class="id">FundingRate</span><span class="o">*</span><span class="k">if</span> <span onmouseout="hideTip(event, 'fs42', 178)" onmouseover="showTip(event, 'fs42', 178)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 179)" onmouseover="showTip(event, 'fs15', 179)" class="id">IsAutocalled</span> <span class="k">then</span> <span class="n">0.</span> <span class="k">else</span> <span class="n">1.</span>
+              <span class="k">let</span> <span onmouseout="hideTip(event, 'fs63', 180)" onmouseover="showTip(event, 'fs63', 180)" class="fn">cash</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs63', 181)" onmouseover="showTip(event, 'fs63', 181)" class="fn">cash</span> <span class="o">-</span><span onmouseout="hideTip(event, 'fs62', 182)" onmouseover="showTip(event, 'fs62', 182)" class="fn">funding</span> <span onmouseout="hideTip(event, 'fs40', 183)" onmouseover="showTip(event, 'fs40', 183)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs28', 184)" onmouseover="showTip(event, 'fs28', 184)" class="id">FundingPayDates</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs42', 185)" onmouseover="showTip(event, 'fs42', 185)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 186)" onmouseover="showTip(event, 'fs14', 186)" class="id">FundingDateIndex</span><span class="pn">]</span>   <span onmouseout="hideTip(event, 'fs40', 187)" onmouseover="showTip(event, 'fs40', 187)" class="fn">instrument</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 188)" onmouseover="showTip(event, 'fs55', 188)" class="id">Currency</span>
+              <span onmouseout="hideTip(event, 'fs42', 189)" onmouseover="showTip(event, 'fs42', 189)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 190)" onmouseover="showTip(event, 'fs20', 190)" class="id">CashFlow</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs63', 191)" onmouseover="showTip(event, 'fs63', 191)" class="fn">cash</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs42', 192)" onmouseover="showTip(event, 'fs42', 192)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 193)" onmouseover="showTip(event, 'fs20', 193)" class="id">CashFlow</span>
+              <span onmouseout="hideTip(event, 'fs42', 194)" onmouseover="showTip(event, 'fs42', 194)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 195)" onmouseover="showTip(event, 'fs14', 195)" class="id">FundingDateIndex</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs42', 196)" onmouseover="showTip(event, 'fs42', 196)" class="fn">state</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 197)" onmouseover="showTip(event, 'fs14', 197)" class="id">FundingDateIndex</span> <span class="o">+</span> <span class="n">1</span>
+
+         <span onmouseout="hideTip(event, 'fs42', 198)" onmouseover="showTip(event, 'fs42', 198)" class="fn">state</span>
+</code></pre>
+
+            <div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">namespace QFL</div>
+<div class="fsdocs-tip" id="fs3">namespace QFL.MonteCarlo</div>
+<div class="fsdocs-tip" id="fs4">module Instrument
+
+from QFL.MonteCarlo</div>
+<div class="fsdocs-tip" id="fs5">module Autocall
+
+from AutocallScript</div>
+<div class="fsdocs-tip" id="fs6">val step: x: float -&gt; float</div>
+<div class="fsdocs-tip" id="fs7">val x: float</div>
+<div class="fsdocs-tip" id="fs8">State.CouponMemory: float</div>
+<div class="fsdocs-tip" id="fs9">Multiple items<br />val float: value: &#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure. 
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs10">Multiple items<br />State.CashFlow: CashFlow<br /><em>required field containing cash flows</em><br /><br />--------------------<br />type CashFlow = Cash list</div>
+<div class="fsdocs-tip" id="fs11">type CashFlow = Cash list</div>
+<div class="fsdocs-tip" id="fs12">State.CouponDateIndex: int</div>
+<div class="fsdocs-tip" id="fs13">Multiple items<br />val int: value: &#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs14">State.FundingDateIndex: int</div>
+<div class="fsdocs-tip" id="fs15">State.IsAutocalled: bool</div>
+<div class="fsdocs-tip" id="fs16">[&lt;Struct&gt;]
+type bool = Boolean<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Boolean&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs17">State.Probability: float list</div>
+<div class="fsdocs-tip" id="fs18">type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
+
+ Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1; 2; 3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/lists&quot;&gt;F# Language Guide - Lists&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
+<div class="fsdocs-tip" id="fs19">val this: State</div>
+<div class="fsdocs-tip" id="fs20">State.CashFlow: CashFlow<br /><em>required field containing cash flows</em></div>
+<div class="fsdocs-tip" id="fs21">Multiple items<br />namespace System.Data<br /><br />--------------------<br />namespace Microsoft.FSharp.Data<br /><br />--------------------<br />type Data =
+  {
+    AssetNames: string[]
+    CouponDates: DateTime[]
+    CouponPayDates: DateTime[]
+    FundingDates: DateTime[]
+    FundingPayDates: DateTime[]
+    InitialLevels: float[]
+    CouponTriggerLevel: float
+    Coupon: float
+    FundingRate: float
+    Notional: float
+    ...
+  }</div>
+<div class="fsdocs-tip" id="fs22">Data.AssetNames: string[]</div>
+<div class="fsdocs-tip" id="fs23">Multiple items<br />val string: value: &#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;</em><br /><br />--------------------<br />type string = String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs24">Data.CouponDates: DateTime[]</div>
+<div class="fsdocs-tip" id="fs25">Multiple items<br />[&lt;Struct&gt;]
+type DateTime =
+  new: year: int * month: int * day: int -&gt; unit + 10 overloads
+  member Add: value: TimeSpan -&gt; DateTime
+  member AddDays: value: float -&gt; DateTime
+  member AddHours: value: float -&gt; DateTime
+  member AddMilliseconds: value: float -&gt; DateTime
+  member AddMinutes: value: float -&gt; DateTime
+  member AddMonths: months: int -&gt; DateTime
+  member AddSeconds: value: float -&gt; DateTime
+  member AddTicks: value: int64 -&gt; DateTime
+  member AddYears: value: int -&gt; DateTime
+  ...<br /><em>&lt;summary&gt;Represents an instant in time, typically expressed as a date and time of day.&lt;/summary&gt;</em><br /><br />--------------------<br />DateTime ()<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64, kind: DateTimeKind) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, calendar: Globalization.Calendar) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, kind: DateTimeKind) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, calendar: Globalization.Calendar) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int, kind: DateTimeKind) : DateTime<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="fsdocs-tip" id="fs26">Data.CouponPayDates: DateTime[]</div>
+<div class="fsdocs-tip" id="fs27">Data.FundingDates: DateTime[]</div>
+<div class="fsdocs-tip" id="fs28">Data.FundingPayDates: DateTime[]</div>
+<div class="fsdocs-tip" id="fs29">Data.InitialLevels: float[]</div>
+<div class="fsdocs-tip" id="fs30">Data.CouponTriggerLevel: float</div>
+<div class="fsdocs-tip" id="fs31">Data.Coupon: float</div>
+<div class="fsdocs-tip" id="fs32">Data.FundingRate: float</div>
+<div class="fsdocs-tip" id="fs33">Data.Notional: float</div>
+<div class="fsdocs-tip" id="fs34">Multiple items<br />Data.Currency: Currency<br /><br />--------------------<br />type Currency =
+  | RUB
+  | USD
+  | EUR
+  | GBP
+  | CHF
+  | XAU
+  | JPY
+  | CNH
+  | TRY
+  | RON
+  ...
+  override ToString: unit -&gt; string
+  static member FromString: s: string -&gt; Currency option</div>
+<div class="fsdocs-tip" id="fs35">type Currency =
+  | RUB
+  | USD
+  | EUR
+  | GBP
+  | CHF
+  | XAU
+  | JPY
+  | CNH
+  | TRY
+  | RON
+  ...
+  override ToString: unit -&gt; string
+  static member FromString: s: string -&gt; Currency option</div>
+<div class="fsdocs-tip" id="fs36">Data.PutGearing: float</div>
+<div class="fsdocs-tip" id="fs37">Data.Strike: float</div>
+<div class="fsdocs-tip" id="fs38">Data.AutocallTriggerLevel: float</div>
+<div class="fsdocs-tip" id="fs39">val payoff: instrument: Data -&gt; date: DateTime -&gt; state: State -&gt; spots: float[] -&gt; State</div>
+<div class="fsdocs-tip" id="fs40">val instrument: Data</div>
+<div class="fsdocs-tip" id="fs41">val date: DateTime</div>
+<div class="fsdocs-tip" id="fs42">val state: State</div>
+<div class="fsdocs-tip" id="fs43">val spots: float[]</div>
+<div class="fsdocs-tip" id="fs44">type Array =
+  interface ICollection
+  interface IEnumerable
+  interface IList
+  interface IStructuralComparable
+  interface IStructuralEquatable
+  interface ICloneable
+  member Clone: unit -&gt; obj
+  member CopyTo: array: Array * index: int -&gt; unit + 1 overload
+  member GetEnumerator: unit -&gt; IEnumerator
+  member GetLength: dimension: int -&gt; int
+  ...<br /><em>&lt;summary&gt;Provides methods for creating, manipulating, searching, and sorting arrays, thereby serving as the base class for all arrays in the common language runtime.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs45">val contains: value: &#39;T -&gt; array: &#39;T[] -&gt; bool (requires equality)<br /><em>&lt;summary&gt;Tests if the array contains the specified element.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to locate in the input array.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;True if the input array contains the specified element; false otherwise.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs46">val isNotAutocalled: float</div>
+<div class="fsdocs-tip" id="fs47">val worst: float</div>
+<div class="fsdocs-tip" id="fs48">val map2: mapping: (&#39;T1 -&gt; &#39;T2 -&gt; &#39;U) -&gt; array1: &#39;T1[] -&gt; array2: &#39;T2[] -&gt; &#39;U[]<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to the corresponding elements of the two collections pairwise. The two input
+ arrays must have the same lengths, otherwise an &lt;c&gt;ArgumentException&lt;/c&gt; is
+ raised.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform the pairs of the input elements.&lt;/param&gt;<br />&lt;param name=&quot;array1&quot;&gt;The first input array.&lt;/param&gt;<br />&lt;param name=&quot;array2&quot;&gt;The second input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input arrays differ in length.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when either of the input arrays is null.&lt;/exception&gt;<br />&lt;returns&gt;The array of transformed elements.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs49">val y: float</div>
+<div class="fsdocs-tip" id="fs50">val min: array: &#39;T[] -&gt; &#39;T (requires comparison)<br /><em>&lt;summary&gt;Returns the lowest of all elements of the array, compared via Operators.min.&lt;/summary&gt;<br />&lt;remarks&gt;Throws ArgumentException for empty arrays&lt;/remarks&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;<br />&lt;returns&gt;The minimum element.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs51">val currCpTrig: float</div>
+<div class="fsdocs-tip" id="fs52">val flow: float</div>
+<div class="fsdocs-tip" id="fs53">val cpn: Cash</div>
+<div class="fsdocs-tip" id="fs54">val cash: amount: float -&gt; date: DateTime -&gt; currency: Currency -&gt; Cash</div>
+<div class="fsdocs-tip" id="fs55">Data.Currency: Currency</div>
+<div class="fsdocs-tip" id="fs56">val isAutocalled: bool</div>
+<div class="fsdocs-tip" id="fs57">val prob: float</div>
+<div class="fsdocs-tip" id="fs58">val last: array: &#39;T[] -&gt; &#39;T<br /><em>&lt;summary&gt;Returns the last element of the array.&lt;/summary&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The last element of the array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input does not have any elements.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs59">type Math =
+  static member Abs: value: decimal -&gt; decimal + 7 overloads
+  static member Acos: d: float -&gt; float
+  static member Acosh: d: float -&gt; float
+  static member Asin: d: float -&gt; float
+  static member Asinh: d: float -&gt; float
+  static member Atan: d: float -&gt; float
+  static member Atan2: y: float * x: float -&gt; float
+  static member Atanh: d: float -&gt; float
+  static member BigMul: a: int * b: int -&gt; int64 + 2 overloads
+  static member BitDecrement: x: float -&gt; float
+  ...<br /><em>&lt;summary&gt;Provides constants and static methods for trigonometric, logarithmic, and other common mathematical functions.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs60">Math.Max(val1: unativeint, val2: unativeint) : unativeint<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: uint64, val2: uint64) : uint64<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: uint32, val2: uint32) : uint32<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: uint16, val2: uint16) : uint16<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: float32, val2: float32) : float32<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: sbyte, val2: sbyte) : sbyte<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: nativeint, val2: nativeint) : nativeint<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: int64, val2: int64) : int64<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: int, val2: int) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Math.Max(val1: int16, val2: int16) : int16<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="fsdocs-tip" id="fs61">val put: Cash</div>
+<div class="fsdocs-tip" id="fs62">val funding: float</div>
+<div class="fsdocs-tip" id="fs63">val cash: Cash</div>
+<div class="fsdocs-tip" id="fs64">Multiple items<br />module Instrument
+
+from QFL.MonteCarlo<br /><br />--------------------<br />type Instrument =
+  interface IPayoffInstrument&lt;State,float[]&gt;
+  new: x: Data -&gt; Instrument<br /><br />--------------------<br />new: x: Data -&gt; Instrument</div>
+<div class="fsdocs-tip" id="fs65">val x: Data</div>
+<div class="fsdocs-tip" id="fs66">type IPayoffInstrument&lt;&#39;State,&#39;ProcessState&gt; =
+  abstract evolve: date: DateTime -&gt; &#39;State -&gt; &#39;ProcessState -&gt; &#39;State
+  abstract Dates: DateTime[]
+  abstract assetNames: string[]
+  abstract initialState: &#39;State</div>
+<div class="fsdocs-tip" id="fs67">type State =
+  {
+    mutable CouponMemory: float
+    mutable CashFlow: CashFlow
+    mutable CouponDateIndex: int
+    mutable FundingDateIndex: int
+    mutable IsAutocalled: bool
+    mutable Probability: float list
+  }
+  member Clone: State</div>
+<div class="fsdocs-tip" id="fs68">val this: Instrument</div>
+<div class="fsdocs-tip" id="fs69">val concat: arrays: seq&lt;&#39;T[]&gt; -&gt; &#39;T[]<br /><em>&lt;summary&gt;Builds a new array that contains the elements of each of the given sequence of arrays.&lt;/summary&gt;<br />&lt;param name=&quot;arrays&quot;&gt;The input sequence of arrays.&lt;/param&gt;<br />&lt;returns&gt;The concatenation of the sequence of input arrays.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input sequence is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs70">val spot: float[]</div>
+
+        </div>
+
+        <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+        <script type="text/javascript">var fsdocs_search_baseurl = '';</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+        <script type="text/javascript" src="content/fsdocs-search.js"></script>
+        <!-- END SEARCH BOX: this adds support for the search box -->
+    </div>
+</body>
+
+</html>

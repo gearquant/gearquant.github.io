@@ -1,4 +1,12 @@
-# Markdown extensions side-by-side example
+-----------------------
+
+title: Markdown LaTeX
+category: Examples
+categoryindex: 2
+
+## index: 3
+
+# Example: Using the Markdown Extensions for LaTeX
 
 To use LaTex extension, you need add javascript
 link to [MathJax](http://www.mathjax.org/) in
@@ -23,13 +31,9 @@ A_{m,n} =
 
 Use LaTex escape rule:
 
-* Escape $ in inline mode: $\$$, $\$var$
-
-* Other escapes: $\& \% \$ \# \_ \{ \}$
-
-* Using < or >: $x > 1$, $y < 1$, $x >= 1$,
-$y <= 1$, $x = 1$
-
-* $<p>something</p>$
-
+// can't yet format Span ([Literal ("Escape $ in inline mode: ", Some { StartLine = 32 StartColumn = 2 EndLine = 32 EndColumn = 27 }); LatexInlineMath ("\$", Some { StartLine = 32 StartColumn = 28 EndLine = 32 EndColumn = 30 }); Literal (", ", Some { StartLine = 32 StartColumn = 28 EndLine = 32 EndColumn = 30 }); LatexInlineMath ("\$var", Some { StartLine = 32 StartColumn = 31 EndLine = 32 EndColumn = 36 })], Some { StartLine = 32 StartColumn = 0 EndLine = 32 EndColumn = 45 }) to pynb markdown
+// can't yet format Span ([Literal ("Other escapes: ", Some { StartLine = 33 StartColumn = 2 EndLine = 33 EndColumn = 17 }); LatexInlineMath ("\& \% \$ \# \_ \{ \}", Some { StartLine = 33 StartColumn = 18 EndLine = 33 EndColumn = 38 })], Some { StartLine = 32 StartColumn = 0 EndLine = 32 EndColumn = 45 }) to pynb markdown
+// can't yet format Span ([Literal ("Using < or >: ", Some { StartLine = 34 StartColumn = 2 EndLine = 35 EndColumn = 16 }); LatexInlineMath ("x > 1", Some { StartLine = 34 StartColumn = 17 EndLine = 35 EndColumn = 22 }); Literal (", ", Some { StartLine = 34 StartColumn = 17 EndLine = 35 EndColumn = 19 }); LatexInlineMath ("y < 1", Some { StartLine = 34 StartColumn = 20 EndLine = 35 EndColumn = 25 }); Literal (", ", Some { StartLine = 34 StartColumn = 20 EndLine = 35 EndColumn = 22 }); LatexInlineMath ("x >= 1", Some { StartLine = 34 StartColumn = 23 EndLine = 35 EndColumn = 29 }); Literal (",
+", Some { StartLine = 34 StartColumn = 23 EndLine = 35 EndColumn = 26 }); LatexInlineMath ("y <= 1", Some { StartLine = 34 StartColumn = 27 EndLine = 35 EndColumn = 33 }); Literal (", ", Some { StartLine = 34 StartColumn = 27 EndLine = 35 EndColumn = 29 }); LatexInlineMath ("x = 1", Some { StartLine = 34 StartColumn = 30 EndLine = 35 EndColumn = 35 })], Some { StartLine = 32 StartColumn = 0 EndLine = 32 EndColumn = 45 }) to pynb markdown
+// can't yet format Span ([LatexInlineMath ("<p>something</p>", Some { StartLine = 36 StartColumn = 3 EndLine = 36 EndColumn = 19 })], Some { StartLine = 32 StartColumn = 0 EndLine = 32 EndColumn = 45 }) to pynb markdown
 

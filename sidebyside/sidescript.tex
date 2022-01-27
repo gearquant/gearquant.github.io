@@ -43,7 +43,16 @@
 
 \maketitle
 
-\section*{Literate script side-by-side example}
+\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}\medskip
+
+
+
+title: Literate Script
+category: Examples
+categoryindex: 2
+\subsection*{index: 1}
+
+\section*{Example: Using Literate Script Content}
 
 
 
@@ -72,17 +81,16 @@ And numerous other \href{http://daringfireball.net/projects/markdown}{Markdown} 
 
 Code that is not inside comment will be formatted as
 a sample snippet.
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
+\begin{Verbatim}[commandchars=\\\{\}]
 \com{/// The Hello World of functional languages!}
-\kwd{let} \kwd{rec} \lfun{factorial} \lfun{x} \ops{=} 
-  \kwd{if} \lfun{x} \ops{=} \num{0} \kwd{then} \num{1} 
-  \kwd{else} \lfun{x} \ops{*} {(}\lfun{factorial} {(}\lfun{x} \ops{-} \num{1}{)}{)}
+\kwd{let} \kwd{rec} \lfun{factorial} \lfun{x} \ops{=}
+    \kwd{if} \lfun{x} \ops{=} \num{0} \kwd{then}
+        \num{1}
+    \kwd{else}
+        \lfun{x} \ops{*} {(}\lfun{factorial} {(}\lfun{x} \ops{-} \num{1}{)}{)}
 
 \kwd{let} \id{f10} \ops{=} \lfun{factorial} \num{10}
-
-\end{lstlisting}
+\end{Verbatim}
 
 \subsection*{Hiding code}
 
@@ -96,12 +104,9 @@ command.
 The value will be defined in the F\# code and so you
 can use it from other (visible) code and get correct
 tool tips:
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
+\begin{Verbatim}[commandchars=\\\{\}]
 \kwd{let} \id{answer} \ops{=} \id{hidden}
-
-\end{lstlisting}
+\end{Verbatim}
 
 \subsection*{Moving code around}
 
@@ -115,25 +120,16 @@ This can be done using \texttt{include} and \texttt{define} commands.
 
 The following snippet gets correct tool tips, even though
 it uses \texttt{laterFunction}:
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
-\kwd{let} \id{sample} \ops{=} 
-  \lfun{laterFunction}{(}{)}
-  \ops{|>} \lfun{printfn} \str{"Got: }\lprf{\%s}\str{"}
-
-\end{lstlisting}
+\begin{Verbatim}[commandchars=\\\{\}]
+\kwd{let} \id{sample} \ops{=} \lfun{laterFunction} {(}{)} \ops{|>} \lfun{printfn} \str{"Got: }\lprf{\%s}\str{"}
+\end{Verbatim}
 
 
 
 Then we can explain how \texttt{laterFunction} is defined:
-\begin{lstlisting}[numbers=left]
-
-[escapeinside=\\\{\}]
-\kwd{let} \lfun{laterFunction}{(}{)} \ops{=} 
-  \str{"Not very difficult, is it?"}
-
-\end{lstlisting}
+\begin{Verbatim}[commandchars=\\\{\}]
+\kwd{let} \lfun{laterFunction} {(}{)} \ops{=} \str{"Not very difficult, is it?"}
+\end{Verbatim}
 
 
 

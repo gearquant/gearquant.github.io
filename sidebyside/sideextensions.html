@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Markdown extensions side-by-side example
+    <title>Example: Using the Markdown Extensions for LaTeX
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="">
+    <meta name="author" content="Tomas Petricek; Oleg Pestov; Anh-Dung Phan; Xiang Zhang; Matthias Dittrich; Don Syme">
 
     <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -14,10 +14,10 @@
 
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-    <link type="text/css" rel="stylesheet" href="/net5.0/content/navbar-fixed-left.css" />
-    <link type="text/css" rel="stylesheet" href="/net5.0/content/fsdocs-default.css" />
-    <link type="text/css" rel="stylesheet" href="/net5.0/content/fsdocs-custom.css" />
-    <script type="text/javascript" src="/net5.0/content/fsdocs-tips.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://fsprojects.github.io/FSharp.Formatting/content/navbar-fixed-right.css" />
+    <link type="text/css" rel="stylesheet" href="https://fsprojects.github.io/FSharp.Formatting/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="https://fsprojects.github.io/FSharp.Formatting/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="https://fsprojects.github.io/FSharp.Formatting/content/fsdocs-tips.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,12 +29,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-left" id="fsdocs-menu">
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-right" id="fsdocs-menu">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <a href="/net5.0/"><img id="fsdocs-logo" src="/net5.0/img/logo.png" /></a>
+        <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarsExampleDefault">
+            <a href="https://fsprojects.github.io/FSharp.Formatting/"><img id="fsdocs-logo" src="https://fsprojects.github.io/FSharp.Formatting/img/logo.png" /></a>
             <!-- BEGIN SEARCH BOX: this adds support for the search box -->
             <div id="header">
                 <div class="searchbox" id="fsdocs-searchbox">
@@ -51,61 +51,92 @@
             <!-- END SEARCH BOX: this adds support for the search box -->
             <ul class="navbar-nav">
                 <li class="nav-header">Links</li>
-                <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="{{fsdocs-license-link}}">License (Apache 2.0)</a></li>
-                <li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="{{fsdocs-release-notes-link}}">Release Notes</a></li>
-                <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="{{fsdocs-repository-link}}">Source Repository</a></li>
+                <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="https://github.com/fsprojects/FSharp.Formatting/blob/master/LICENSE.md">License (Apache 2.0)</a></li>
+                <li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="https://github.com/fsprojects/FSharp.Formatting/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+                <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="https://github.com/fsprojects/FSharp.Formatting/">Source Repository</a></li>
                 <li class="nav-header">
   Documentation
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/styling.html">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/commandline.html">
+    Command line
+
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/content.html">
+    Creating Content
+
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/overview.html">
+    Setup market, PV and Greeks calculation example
+
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/styling.html">
     Customization and Styling
 
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/upgrade.html">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/upgrade.html">
     Upgrading to fsdocs
 
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/sidebyside/sideextensions.html">
-    Markdown extensions side-by-side example
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/sidebyside/sideextensions.html">
+    Example: Using the Markdown Extensions for LaTeX
 
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/sidebyside/sidemarkdown.html">
-    Literate Markdown side-by-side example
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/sidebyside/sidemarkdown.html">
+    Example: Using Markdown Content
 
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/sidebyside/sidescript.html">
-    Literate script side-by-side example
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/sidebyside/sidescript.html">
+    Example: Using Literate Script Content
 
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/net5.0/templates/leftside/styling.html">
-    Styling: Left-Side Example
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/templates/leftside/styling.html">
+    Example: Right-Side NavBar
 
   </a>
 </li>
-                {{fsdocs-list-of-namespaces}}
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fsprojects.github.io/FSharp.Formatting/reference/index.html">
+    All Namespaces
+  </a>
+</li>
             </ul>
         </div>
     </nav>
     <div class="container">
         <div class="masthead">
-            <h3 class="muted"><a href="/net5.0/">net5.0</a></h3>
+            <h3 class="muted"><a href="https://fsprojects.github.io/FSharp.Formatting/">FSharp.Formatting</a></h3>
         </div>
         <hr />
         <div class="container" id="fsdocs-content">
             <div class="row">
                 <div class="col-xs-4">
-                    <table class="pre"><tr><td><pre><code>Markdown extensions side-by-side example
+                    <table class="pre"><tr><td><pre><code>---
+title: Markdown LaTeX
+category: Examples
+categoryindex: 2
+index: 3
+---
+Example: Using the Markdown Extensions for LaTeX
 ===================
 
 To use LaTex extension, you need add javascript
@@ -141,7 +172,12 @@ Use LaTex escape rule:
 
                 </div>
                 <div class="col-xs-4">
-                    <h1><a name="Markdown-extensions-side-by-side-example" class="anchor" href="#Markdown-extensions-side-by-side-example">Markdown extensions side-by-side example</a></h1>
+                    <hr />
+<p>title: Markdown LaTeX
+category: Examples
+categoryindex: 2</p>
+<h2><a name="index-3" class="anchor" href="#index-3">index: 3</a></h2>
+<h1><a name="Example-Using-the-Markdown-Extensions-for-LaTeX" class="anchor" href="#Example-Using-the-Markdown-Extensions-for-LaTeX">Example: Using the Markdown Extensions for LaTeX</a></h1>
 <p>To use LaTex extension, you need add javascript
 link to <a href="http://www.mathjax.org/">MathJax</a> in
 your template.</p>
@@ -175,12 +211,13 @@ Using < or >: <span class="math">\(x &gt; 1\)</span>, <span class="math">\(y &lt
 
         <!-- BEGIN SEARCH BOX: this adds support for the search box -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
-        <script type="text/javascript">var fsdocs_search_baseurl = '/net5.0/'</script>
+        <script type="text/javascript">var fsdocs_search_baseurl = 'https://fsprojects.github.io/FSharp.Formatting/'</script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
-        <script type="text/javascript" src="/net5.0/content/fsdocs-search.js"></script>
+        <script type="text/javascript" src="https://fsprojects.github.io/FSharp.Formatting/content/fsdocs-search.js"></script>
         <!-- END SEARCH BOX: this adds support for the search box -->
     </div>
 </body>
 
 </html>
+

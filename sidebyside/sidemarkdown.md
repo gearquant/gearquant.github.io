@@ -1,4 +1,12 @@
-# Literate Markdown side-by-side example
+-----------------------
+
+title: Markdown Content
+category: Examples
+categoryindex: 2
+
+## index: 2
+
+# Example: Using Markdown Content
 
 This file demonstrates how to write Markdown document with
 embedded F# snippets that can be transformed into nice HTML
@@ -8,10 +16,8 @@ package](http://fsprojects.github.io/FSharp.Formatting).
 In this case, the document itself is a valid Markdown and
 you can use standard Markdown features to format the text:
 
-* Here is an example of unordered list and...
-
-* Text formatting including **bold** and **emphasis**
-
+// can't yet format Span ([Literal ("Here is an example of unordered list and...", Some { StartLine = 17 StartColumn = 3 EndLine = 17 EndColumn = 46 })], Some { StartLine = 17 StartColumn = 0 EndLine = 17 EndColumn = 46 }) to pynb markdown
+// can't yet format Span ([Literal ("Text formatting including ", Some { StartLine = 18 StartColumn = 3 EndLine = 19 EndColumn = 29 }); Strong ([Literal ("bold", Some { StartLine = 18 StartColumn = 29 EndLine = 19 EndColumn = 33 })], Some { StartLine = 18 StartColumn = 29 EndLine = 19 EndColumn = -2 }); Literal (" and ", Some { StartLine = 18 StartColumn = 29 EndLine = 19 EndColumn = 34 }); Emphasis ([Literal ("emphasis", Some { StartLine = 18 StartColumn = 34 EndLine = 19 EndColumn = 42 })], Some { StartLine = 18 StartColumn = 34 EndLine = 19 EndColumn = -2 })], Some { StartLine = 17 StartColumn = 0 EndLine = 17 EndColumn = 46 }) to pynb markdown
 For more information, see the [Markdown](http://daringfireball.net/projects/markdown) reference.
 
 ## Writing F# code
@@ -22,13 +28,13 @@ snippet will be turned into a `<pre>` element. If you do
 the same using Literate F# tool, the code is turned into
 a nicely formatted F# snippet:
 
-    /// The Hello World of functional languages!
-    let rec factorial x = 
-      if x = 0 then 1 
-      else x * (factorial (x - 1))
+// can't yet format InlineBlock ("/// The Hello World of functional languages!
+let rec factorial x = 
+  if x = 0 then 1 
+  else x * (factorial (x - 1))
 
-    let f10 = factorial 10
-
+let f10 = factorial 10
+", None, None) to pynb markdown
 
 ## Hiding code
 
@@ -38,16 +44,12 @@ command. You can also use `module=...` to specify that
 the snippet should be placed in a separate module
 (e.g. to avoid duplicate definitions).
 
-    [hide, module=Hidden]
-    /// This is a hidden answer
-    let answer = 42
-
 The value will be deffined in the F# code that is
 processed and so you can use it from other (visible)
 code and get correct tool tips:
 
-    let answer = Hidden.answer
-
+// can't yet format InlineBlock ("let answer = Hidden.answer
+", None, None) to pynb markdown
 
 ## Including other snippets
 
@@ -56,8 +58,8 @@ you can also include snippets in other languages.
 These will not be colorized and processed as F#
 code samples:
 
-    [lang=csharp]
-    Console.WriteLine("Hello world!");
+// can't yet format InlineBlock ("Console.WriteLine("Hello world!");
+", None, None) to pynb markdown
 
 This snippet is turned into a `pre` element with the
 `lang` attribute set to `csharp`.
