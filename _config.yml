@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
 title: [Quantitative Financial Library]
 description: [.Net library include set of tools for pricing equity/FX instruments.]
+
+#keywords: "Quantitative, Financial, Library, pricing, equity, FX, instruments"
